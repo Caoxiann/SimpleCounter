@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="NoteTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="477" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="477" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IU-o9-z14">
+                        <rect key="frame" x="28" y="61" width="95.5" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxf-Mx-dUa">
+                        <rect key="frame" x="401.5" y="33.5" width="47.5" height="32.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miK-fB-7CR">
+                        <rect key="frame" x="28" y="8" width="238.5" height="33"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3IU-o9-z14" firstAttribute="leading" secondItem="miK-fB-7CR" secondAttribute="leading" id="BMN-ts-o6f"/>
+                    <constraint firstItem="3IU-o9-z14" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.2" id="Dwp-QP-NYV"/>
+                    <constraint firstItem="miK-fB-7CR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="Gdf-LH-7bR"/>
+                    <constraint firstItem="Mxf-Mx-dUa" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.33" id="Kf9-g1-sN1"/>
+                    <constraint firstItem="3IU-o9-z14" firstAttribute="top" secondItem="miK-fB-7CR" secondAttribute="bottom" constant="20" id="PB7-SO-9VA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Mxf-Mx-dUa" secondAttribute="trailing" constant="20" id="QLO-Ec-Hra"/>
+                    <constraint firstItem="Mxf-Mx-dUa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="XLW-8k-Lmr"/>
+                    <constraint firstItem="miK-fB-7CR" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="ZEY-iC-t86"/>
+                    <constraint firstItem="3IU-o9-z14" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.2" id="aBU-p4-PcV"/>
+                    <constraint firstItem="miK-fB-7CR" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.33" id="kYS-58-YJk"/>
+                    <constraint firstItem="Mxf-Mx-dUa" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.1" id="obw-cU-ak8"/>
+                    <constraint firstAttribute="topMargin" secondItem="miK-fB-7CR" secondAttribute="top" id="zok-YN-ocO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="103.5" y="80"/>
+        </tableViewCell>
+    </objects>
+</document>
