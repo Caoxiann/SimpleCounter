@@ -28,9 +28,9 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.1764705882352941" green="0.75294117647058822" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8A1-hP-w3n">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8A1-hP-w3n">
+                                <rect key="frame" x="0.0" y="64" width="375" height="563"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tuT-gC-RaI">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -82,7 +82,7 @@
                             <constraint firstItem="tuT-gC-RaI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="5VD-8t-q0D"/>
                             <constraint firstItem="Hhr-uO-FeT" firstAttribute="bottom" secondItem="ACA-Hb-bWU" secondAttribute="bottom" constant="-8" id="Iam-Zq-D9u"/>
                             <constraint firstItem="8A1-hP-w3n" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="J14-Eb-A4h"/>
-                            <constraint firstItem="8A1-hP-w3n" firstAttribute="bottom" secondItem="tuT-gC-RaI" secondAttribute="bottom" id="TUo-RA-rj9"/>
+                            <constraint firstItem="8A1-hP-w3n" firstAttribute="bottom" secondItem="tuT-gC-RaI" secondAttribute="bottom" constant="-40" id="TUo-RA-rj9"/>
                             <constraint firstItem="ACA-Hb-bWU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="dLE-pN-cAf"/>
                             <constraint firstItem="ACA-Hb-bWU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gtW-mb-M2k"/>
                             <constraint firstItem="ACA-Hb-bWU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="jfP-P1-fQZ"/>

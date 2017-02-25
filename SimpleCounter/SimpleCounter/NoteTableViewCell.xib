@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="477" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="477" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="477" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IU-o9-z14">
@@ -26,7 +26,7 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxf-Mx-dUa">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金额" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxf-Mx-dUa">
                         <rect key="frame" x="401.5" y="33.5" width="47.5" height="32.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
@@ -54,6 +54,11 @@
                     <constraint firstAttribute="topMargin" secondItem="miK-fB-7CR" secondAttribute="top" id="zok-YN-ocO"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="priceLabel" destination="Mxf-Mx-dUa" id="htT-aE-cjV"/>
+                <outlet property="titleLabel" destination="miK-fB-7CR" id="Fzr-S2-bbu"/>
+                <outlet property="typeLabel" destination="3IU-o9-z14" id="Dc5-SN-ANe"/>
+            </connections>
             <point key="canvasLocation" x="103.5" y="80"/>
         </tableViewCell>
     </objects>

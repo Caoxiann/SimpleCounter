@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2月20日 星期五" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAd-bg-h0f">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DAd-bg-h0f" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="7kO-56-Gjo"/>
+                <constraint firstItem="DAd-bg-h0f" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DjX-uI-t4h"/>
+                <constraint firstItem="DAd-bg-h0f" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="hei-I1-oJQ"/>
+                <constraint firstItem="DAd-bg-h0f" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="htA-fJ-kSc"/>
+            </constraints>
+            <connections>
+                <outlet property="consumeLabel" destination="QdS-gG-4Zn" id="tDw-sj-4cY"/>
+                <outlet property="dateLabel" destination="DAd-bg-h0f" id="m6f-OD-Eia"/>
+                <outlet property="priceLabel" destination="bbY-0m-dBh" id="d4p-1F-YIQ"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="-120"/>
+        </view>
+        <view contentMode="scaleToFill" id="fde-sa-5co" customClass="HeaderFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当日消费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdS-gG-4Zn">
+                    <rect key="frame" x="0.0" y="0.0" width="188" height="667"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总额" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbY-0m-dBh">
+                    <rect key="frame" x="242.5" y="0.0" width="112.5" height="667"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="QdS-gG-4Zn" firstAttribute="width" secondItem="fde-sa-5co" secondAttribute="width" multiplier="0.5" id="3G0-FN-8v4"/>
+                <constraint firstItem="bbY-0m-dBh" firstAttribute="height" secondItem="fde-sa-5co" secondAttribute="height" id="Ieb-zL-Wz7"/>
+                <constraint firstItem="bbY-0m-dBh" firstAttribute="centerY" secondItem="fde-sa-5co" secondAttribute="centerY" id="Nxl-Z0-wmp"/>
+                <constraint firstItem="QdS-gG-4Zn" firstAttribute="height" secondItem="fde-sa-5co" secondAttribute="height" id="SpT-7M-wU8"/>
+                <constraint firstItem="bbY-0m-dBh" firstAttribute="width" secondItem="fde-sa-5co" secondAttribute="width" multiplier="0.3" id="VsF-RI-Xcl"/>
+                <constraint firstItem="QdS-gG-4Zn" firstAttribute="centerY" secondItem="fde-sa-5co" secondAttribute="centerY" id="hIe-Sx-iof"/>
+                <constraint firstAttribute="trailing" secondItem="bbY-0m-dBh" secondAttribute="trailing" constant="20" id="l9W-nR-UPw"/>
+                <constraint firstItem="QdS-gG-4Zn" firstAttribute="leading" secondItem="fde-sa-5co" secondAttribute="leading" id="zai-TM-p2u"/>
+            </constraints>
+            <point key="canvasLocation" x="34" y="605"/>
+        </view>
+    </objects>
+</document>

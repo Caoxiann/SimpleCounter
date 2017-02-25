@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AB3D2C01E6141B000141759 /* HeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3D2BF1E6141B000141759 /* HeaderFooterView.m */; };
+		1AB3D2C21E6141C000141759 /* HeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB3D2C11E6141C000141759 /* HeaderFooterView.xib */; };
 		1ACB0D581E5DBE0900D9FC39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACB0D571E5DBE0900D9FC39 /* main.m */; };
 		1ACB0D5B1E5DBE0900D9FC39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACB0D5A1E5DBE0900D9FC39 /* AppDelegate.m */; };
 		1ACB0D5E1E5DBE0900D9FC39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACB0D5D1E5DBE0900D9FC39 /* ViewController.m */; };
@@ -18,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AB3D2BE1E6141B000141759 /* HeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderFooterView.h; sourceTree = "<group>"; };
+		1AB3D2BF1E6141B000141759 /* HeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderFooterView.m; sourceTree = "<group>"; };
+		1AB3D2C11E6141C000141759 /* HeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderFooterView.xib; sourceTree = "<group>"; };
 		1ACB0D531E5DBE0900D9FC39 /* SimpleCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACB0D571E5DBE0900D9FC39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1ACB0D591E5DBE0900D9FC39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +74,9 @@
 				1ACB0D5D1E5DBE0900D9FC39 /* ViewController.m */,
 				1ACB0D711E5DD70D00D9FC39 /* NoteTableViewCell.h */,
 				1ACB0D721E5DD70D00D9FC39 /* NoteTableViewCell.m */,
+				1AB3D2BE1E6141B000141759 /* HeaderFooterView.h */,
+				1AB3D2BF1E6141B000141759 /* HeaderFooterView.m */,
+				1AB3D2C11E6141C000141759 /* HeaderFooterView.xib */,
 				1ACB0D731E5DD70D00D9FC39 /* NoteTableViewCell.xib */,
 				1ACB0D5F1E5DBE0900D9FC39 /* Main.storyboard */,
 				1ACB0D621E5DBE0900D9FC39 /* Assets.xcassets */,
@@ -147,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ACB0D661E5DBE0900D9FC39 /* LaunchScreen.storyboard in Resources */,
+				1AB3D2C21E6141C000141759 /* HeaderFooterView.xib in Resources */,
 				1ACB0D631E5DBE0900D9FC39 /* Assets.xcassets in Resources */,
 				1ACB0D611E5DBE0900D9FC39 /* Main.storyboard in Resources */,
 				1ACB0D751E5DD70D00D9FC39 /* NoteTableViewCell.xib in Resources */,
@@ -161,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ACB0D5E1E5DBE0900D9FC39 /* ViewController.m in Sources */,
+				1AB3D2C01E6141B000141759 /* HeaderFooterView.m in Sources */,
 				1ACB0D5B1E5DBE0900D9FC39 /* AppDelegate.m in Sources */,
 				1ACB0D581E5DBE0900D9FC39 /* main.m in Sources */,
 				1ACB0D741E5DD70D00D9FC39 /* NoteTableViewCell.m in Sources */,

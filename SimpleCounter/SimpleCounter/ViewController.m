@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NoteTableViewCell.h"
+#import "HeaderFooterView.h"
 @interface ViewController ()
 
 @end
@@ -29,12 +30,14 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 5;
 }
+
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NoteTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -42,6 +45,24 @@
         cell=[NoteTableViewCell noteTableCelll];
     }
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 20;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 40;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    HeaderFooterView *headerView=[HeaderFooterView headerView];
+    return headerView;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    HeaderFooterView *footerView=[HeaderFooterView footerView];
+    return footerView;
 }
 
 - (IBAction)segmentDidChange:(id)sender {
