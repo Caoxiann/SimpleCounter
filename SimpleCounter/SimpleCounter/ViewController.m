@@ -9,8 +9,13 @@
 #import "ViewController.h"
 #import "NoteTableViewCell.h"
 #import "HeaderFooterView.h"
+#import "AddView.h"
 @interface ViewController ()
-
+{
+    
+}
+@property AddView *addView;
+@property UIView *shadowView;
 @end
 
 @implementation ViewController
@@ -21,6 +26,7 @@
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.tableView.rowHeight=100;
+
 }
 
 
@@ -69,5 +75,9 @@
 }
 
 - (IBAction)didTapAddButton:(id)sender {
+    _addView=[AddView initAddView];
+
+    [self.view addSubview:_addView];    
+    
 }
 @end
