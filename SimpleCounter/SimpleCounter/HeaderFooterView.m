@@ -24,7 +24,7 @@
 }
 
 +(instancetype)footerView{
-    return [[NSBundle mainBundle]loadNibNamed:@"HeaderFooterView" owner:nil options:nil][1];
+    return [[NSBundle mainBundle]loadNibNamed:@"HeaderFooterView" owner:self options:nil][1];
 }
 
 @end

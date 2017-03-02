@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol MainVCDelegate <NSObject>
+@required
+-(void)reloadTableView;
+@end
 
 @interface AddView : UIView
 
-+(instancetype)initAddView;
+-(instancetype)initAddView;
 @property UIView *shadowView;
+@property id<MainVCDelegate>mainVCDelegate;
+
+@property (weak, nonatomic) IBOutlet UITextField *titleInput;
+@property (weak, nonatomic) IBOutlet UITextField *typeInput;
+@property (weak, nonatomic) IBOutlet UITextField *priceInput;
 
 - (IBAction)didPressCancelButton:(id)sender;
 - (IBAction)didPressConfirmButton:(id)sender;

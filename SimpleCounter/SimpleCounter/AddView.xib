@@ -117,6 +117,11 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="priceInput" destination="yK5-YN-erg" id="3sh-Tg-fbH"/>
+                <outlet property="titleInput" destination="rRk-vh-5UY" id="QW0-xb-nSo"/>
+                <outlet property="typeInput" destination="Hgz-5S-w74" id="vMo-Xg-1v1"/>
+            </connections>
             <point key="canvasLocation" x="35" y="54"/>
         </view>
     </objects>
