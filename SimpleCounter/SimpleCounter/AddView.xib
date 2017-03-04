@@ -91,6 +91,7 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Hgz-5S-w74" secondAttribute="trailing" constant="30" id="16v-3T-Y8v"/>
                 <constraint firstItem="rRk-vh-5UY" firstAttribute="leading" secondItem="m6N-nv-xMm" secondAttribute="leading" id="2bc-eQ-t9F"/>
@@ -121,8 +122,14 @@
                 <outlet property="priceInput" destination="yK5-YN-erg" id="3sh-Tg-fbH"/>
                 <outlet property="titleInput" destination="rRk-vh-5UY" id="QW0-xb-nSo"/>
                 <outlet property="typeInput" destination="Hgz-5S-w74" id="vMo-Xg-1v1"/>
+                <outletCollection property="gestureRecognizers" destination="fOv-Bl-UFI" appends="YES" id="R4Q-4p-hkT"/>
             </connections>
             <point key="canvasLocation" x="35" y="54"/>
         </view>
+        <tapGestureRecognizer id="fOv-Bl-UFI">
+            <connections>
+                <action selector="didTapAddView:" destination="iN0-l3-epB" id="Ntj-b3-V3M"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

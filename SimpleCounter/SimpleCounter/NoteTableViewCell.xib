@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="477" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="477" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="477" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IU-o9-z14">
@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金额" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxf-Mx-dUa">
-                        <rect key="frame" x="401.5" y="33.5" width="47.5" height="32.5"/>
+                        <rect key="frame" x="353.5" y="33.5" width="95.5" height="32.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                     <constraint firstItem="miK-fB-7CR" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="ZEY-iC-t86"/>
                     <constraint firstItem="3IU-o9-z14" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.2" id="aBU-p4-PcV"/>
                     <constraint firstItem="miK-fB-7CR" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.33" id="kYS-58-YJk"/>
-                    <constraint firstItem="Mxf-Mx-dUa" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.1" id="obw-cU-ak8"/>
+                    <constraint firstItem="Mxf-Mx-dUa" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.2" id="obw-cU-ak8"/>
                     <constraint firstAttribute="topMargin" secondItem="miK-fB-7CR" secondAttribute="top" id="zok-YN-ocO"/>
                 </constraints>
             </tableViewCellContentView>

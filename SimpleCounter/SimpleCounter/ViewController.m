@@ -104,7 +104,7 @@
         total=total+note.price;
     }
     
-    NSString *priceStr=[[NSString alloc]initWithFormat:@"%.2f 元",total];
+    NSString *priceStr=[[NSString alloc]initWithFormat:@"-%.2f 元",total];
     footer.priceLabel.text=priceStr;
     
     return footer;
@@ -115,8 +115,14 @@
     
     [self.dataManager deleteNoteNumber:deleteNote.number];
     
+    
 //    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     [self reloadTableView];
+}
+
+-(void)removeAddView{
+    [self.addView removeFromSuperview];
+    [self.shadowView removeFromSuperview];
 }
 
 - (IBAction)segmentDidChange:(id)sender {
@@ -125,7 +131,11 @@
 - (IBAction)didTapAddButton:(id)sender {
     _addView=[[AddView alloc]initAddView];
     _addView.mainVCDelegate=self;
-    [self.view addSubview:_addView];    
+    _shadowView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    _shadowView.backgroundColor=[UIColor grayColor];
+    _shadowView.alpha=0.4;
+    [self.view addSubview:_shadowView];
+    [self.view addSubview:_addView];
 }
 
 -(void)reloadTableView{

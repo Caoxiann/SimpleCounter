@@ -42,17 +42,11 @@
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     [super willMoveToSuperview:newSuperview];
-    _shadowView=[[UIView alloc]initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-64)];
-    _shadowView.backgroundColor=[UIColor grayColor];
-    _shadowView.alpha=0.4;
-    [newSuperview addSubview:_shadowView];
     
 }
 
 - (IBAction)didPressCancelButton:(id)sender {
-    [_shadowView removeFromSuperview];
-    [self removeFromSuperview];
-    
+    [self.mainVCDelegate removeAddView];
 }
 
 - (IBAction)didPressConfirmButton:(id)sender {
@@ -63,9 +57,14 @@
     
     [self.dataManager insertNote:newNote];
     
-    [_shadowView removeFromSuperview];
-    [self removeFromSuperview];
+    [_mainVCDelegate removeAddView];
     [_mainVCDelegate reloadTableView];
     NSLog(@"add");
+}
+
+- (IBAction)didTapAddView:(id)sender {
+    [self.titleInput resignFirstResponder];
+    [self.typeInput resignFirstResponder];
+    [self.priceInput resignFirstResponder];
 }
 @end

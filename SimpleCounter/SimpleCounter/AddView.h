@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 @protocol MainVCDelegate <NSObject>
 @required
+-(void)removeAddView;
 -(void)reloadTableView;
 @end
 
 @interface AddView : UIView
 
 -(instancetype)initAddView;
-@property UIView *shadowView;
+
 @property id<MainVCDelegate>mainVCDelegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleInput;
@@ -25,5 +26,6 @@
 - (IBAction)didPressCancelButton:(id)sender;
 - (IBAction)didPressConfirmButton:(id)sender;
 
+- (IBAction)didTapAddView:(id)sender;
 
 @end
