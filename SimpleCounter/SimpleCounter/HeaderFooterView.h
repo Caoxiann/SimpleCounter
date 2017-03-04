@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HeaderFooterView : UIView
-
-+(instancetype)headerView;
-+(instancetype)footerView;
+@interface  HeaderView: UITableViewHeaderFooterView
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *consumeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+
+
 
 @end
 
 
+
+@interface FooterView : UITableViewHeaderFooterView
+
+@property (weak, nonatomic) IBOutlet UILabel *comsumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+
+@end

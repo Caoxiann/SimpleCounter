@@ -8,23 +8,15 @@
 
 #import "HeaderFooterView.h"
 
-@implementation HeaderFooterView
+@implementation HeaderView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
-+(instancetype)headerView{
-    return [[NSBundle mainBundle]loadNibNamed:@"HeaderFooterView" owner:nil options:nil][0];
-    
-}
+@end
 
-+(instancetype)footerView{
-    return [[NSBundle mainBundle]loadNibNamed:@"HeaderFooterView" owner:self options:nil][1];
-}
+
+
+@implementation FooterView
+
+
 
 @end

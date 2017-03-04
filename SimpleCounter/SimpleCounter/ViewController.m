@@ -76,7 +76,11 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    HeaderFooterView *headerView=[HeaderFooterView headerView];
+    
+    HeaderView *header=[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"header"];
+    if (header==nil) {
+        header=[[NSBundle mainBundle]loadNibNamed:@"HeaderFooterView" owner:nil options:nil][0];
+    }
     Note *note=[[self.dataArray objectAtIndex:section]firstObject];
     NSString *weekStr=[self.dataManager getWeeksFromDate:note.date];
     NSString *dateStr=[note.date stringByReplacingCharactersInRange:NSMakeRange(0, 5) withString:@" "];
@@ -84,23 +88,26 @@
     dateStr=[dateStr stringByReplacingCharactersInRange:NSMakeRange(3, 1) withString:@"月"];
     dateStr=[dateStr stringByAppendingString: @"日   "];
     dateStr=[dateStr stringByAppendingString:weekStr];
-    headerView.dateLabel.text=dateStr;
-    return headerView;
+    header.dateLabel.text=dateStr;
+    
+    return header;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    HeaderFooterView *footerView=[HeaderFooterView footerView];
+    FooterView *footer=[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"footer"];
+    if (footer==nil) {
+        footer=[[NSBundle mainBundle]loadNibNamed:@"HeaderFooterView" owner:nil options:nil][1];
+    }
+    
     double total=0;
     for (Note *note in [self.dataArray objectAtIndex:section]) {
         total=total+note.price;
     }
+    
     NSString *priceStr=[[NSString alloc]initWithFormat:@"%.2f 元",total];
+    footer.priceLabel.text=priceStr;
     
-    NSLog(@"footer:%@",footerView.priceLabel);
-    footerView.priceLabel.text=priceStr;
-   
-    
-    return footerView;
+    return footer;
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

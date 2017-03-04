@@ -110,10 +110,10 @@ static DataManagement *instance=nil;
 
 -(NSString *)getWeeksFromDate:(NSString *)dateStr{
     NSDate *date=[self.formatter dateFromString:dateStr];
-    NSCalendar *calendar=[[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierChinese];
+    NSCalendar *calendar=[[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSCalendarUnit calendarUnit=NSCalendarUnitWeekday;
     NSDateComponents *components=[calendar components:calendarUnit fromDate:date];
-    NSArray *weekdays=[NSArray arrayWithObjects:@"周日",@"周一",@"周二",@"周三",@"周四",@"周五",@"周六", nil];
+    NSArray *weekdays=[NSArray arrayWithObjects:@"不知道",@"星期天",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六", nil];
     
     return [weekdays objectAtIndex:components.weekday];
     
