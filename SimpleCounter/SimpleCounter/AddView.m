@@ -50,15 +50,20 @@
 }
 
 - (IBAction)didPressConfirmButton:(id)sender {
-    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *date=[formatter stringFromDate:[NSDate date]];
-    Note *newNote=[[Note alloc]initWithData:0 title:self.titleInput.text type:self.typeInput.text price:[self.priceInput.text doubleValue] date:date];
-    
-    [self.dataManager insertNote:newNote];
-    
-    [_mainVCDelegate removeAddView];
-    [_mainVCDelegate reloadTableView];
+    if ([self.titleInput.text length]==0||[self.typeInput.text length]==0||[self.priceInput.text length]==0) {
+        
+    }else{
+        NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSString *date=[formatter stringFromDate:[NSDate date]];
+        Note *newNote=[[Note alloc]initWithData:0 title:self.titleInput.text type:self.typeInput.text price:[self.priceInput.text doubleValue] date:date];
+        
+        [self.dataManager insertNote:newNote];
+        
+        [_mainVCDelegate removeAddView];
+        [_mainVCDelegate reloadTableView];
+    }
+
     NSLog(@"add");
 }
 

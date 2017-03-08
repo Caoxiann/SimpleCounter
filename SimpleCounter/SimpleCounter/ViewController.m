@@ -12,6 +12,7 @@
 #import "AddView.h"
 #import "Note.h"
 #import "DataManagement.h"
+#import <IQKeyboardReturnKeyHandler.h>
 @interface ViewController ()
 <MainVCDelegate>
 {
@@ -21,6 +22,7 @@
 @property UIView *shadowView;
 @property DataManagement *dataManager;
 @property NSDateFormatter *formatter;
+@property IQKeyboardReturnKeyHandler *returnKey;
 @end
 
 @implementation ViewController
@@ -35,6 +37,10 @@
     self.dataManager=[DataManagement shareDataManagement];
     self.dataArray=[self.dataManager getNoteFormDataBase];
     self.formatter=[[NSDateFormatter alloc]init];
+    
+    self.returnKey=[[IQKeyboardReturnKeyHandler alloc]initWithViewController:self];
+    self.returnKey.lastTextFieldReturnKeyType=UIReturnKeyDone;
+    
     
 }
 

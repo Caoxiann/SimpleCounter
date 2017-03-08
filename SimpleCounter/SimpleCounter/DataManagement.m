@@ -58,21 +58,19 @@ static DataManagement *instance=nil;
 
 -(void)insertNote:(Note *)newNote{
     [_database executeUpdate:@"INSERT INTO t_note (title,type,price,date) VALUES (?,?,?,?);",newNote.title,newNote.type,@(newNote.price),newNote.date];
-    
 }
 
 -(NSMutableArray *)getNoteFormDataBase{
     int count=[self getNoteCount];
     NSDate *curDate=[NSDate date];
     NSMutableArray *dataArray=[[NSMutableArray alloc]init];
-    int dateCount=0;
-    for (int i=0; i<count; dateCount++) {
-        curDate=[curDate dateByAddingTimeInterval:-dateCount*60*60*24];
+    int counter=0;
+    for (int i=0; i<count;i=i+counter) {
+        
         NSString *dateStr=[_formatter stringFromDate:curDate];
         FMResultSet *resultSet=[_database executeQuery:@"select * from t_note where date=?",dateStr];
-        
         NSMutableArray *noteArray=[[NSMutableArray alloc]init];
-        int counter=0;
+        counter=0;
         while ([resultSet next]) {
             int number=[resultSet intForColumn:@"id"];
             NSString *title=[resultSet objectForColumnName:@"title"];
@@ -84,12 +82,12 @@ static DataManagement *instance=nil;
             [noteArray addObject:note];
             counter++;
         }
-        i=i+counter;
+        curDate=[curDate dateByAddingTimeInterval:-60*60*24];
         if ([noteArray count]!=0) {
             [dataArray addObject:noteArray];
         }
+        
     }
-    
     NSLog(@"note array:%@",dataArray);
     return dataArray;
 }
