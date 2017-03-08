@@ -9,6 +9,7 @@
 #import "AddView.h"
 #import "DataManagement.h"
 #import "ViewController.h"
+#import <SVProgressHUD.h>
 @interface AddView ()
 {
     
@@ -32,7 +33,6 @@
     if (self) {
         self=[[NSBundle mainBundle]loadNibNamed:@"AddView" owner:nil options:nil][0];
         [self setFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-500, [UIScreen mainScreen].bounds.size.width,500 )];
-        self.layer.cornerRadius=10;
         self.dataManager=[DataManagement shareDataManagement];
         
     }
@@ -42,7 +42,11 @@
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     [super willMoveToSuperview:newSuperview];
-    
+    UIBezierPath *maskPath=[UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
+    CAShapeLayer *maskLayer=[[CAShapeLayer alloc]init];
+    maskLayer.path=maskPath.CGPath;
+    maskLayer.frame=self.bounds;
+    self.layer.mask=maskLayer;
 }
 
 - (IBAction)didPressCancelButton:(id)sender {
@@ -51,7 +55,8 @@
 
 - (IBAction)didPressConfirmButton:(id)sender {
     if ([self.titleInput.text length]==0||[self.typeInput.text length]==0||[self.priceInput.text length]==0) {
-        
+        [SVProgressHUD setMaximumDismissTimeInterval:2.0];
+        [SVProgressHUD showErrorWithStatus:@"请完整填写内容"];
     }else{
         NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"yyyy-MM-dd"];
