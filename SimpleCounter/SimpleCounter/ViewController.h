@@ -22,3 +22,8 @@
 -(void)reloadTableView;
 @end
 
+
+@interface ChartViewController : UIViewController
+- (IBAction)segementDidChange:(id)sender;
+
+@end

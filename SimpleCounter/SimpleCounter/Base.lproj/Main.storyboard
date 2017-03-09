@@ -28,24 +28,6 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.1764705882352941" green="0.75294117647058822" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8A1-hP-w3n">
-                                <rect key="frame" x="0.0" y="64" width="375" height="563"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuT-gC-RaI">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.1764705882352941" green="0.75294117647058822" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="PLg-ao-COT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                <state key="normal" title="+ 新  增">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j2S-xh-aA4"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hhr-uO-FeT">
                                 <rect key="frame" x="127" y="24" width="121" height="33"/>
                                 <constraints>
@@ -61,6 +43,24 @@
                                     <action selector="segmentDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="vRw-eH-xd4"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuT-gC-RaI">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.1764705882352941" green="0.75294117647058822" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="PLg-ao-COT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <state key="normal" title="+ 新  增">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j2S-xh-aA4"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8A1-hP-w3n">
+                                <rect key="frame" x="0.0" y="64" width="375" height="563"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -81,11 +81,64 @@
                     <connections>
                         <outlet property="addButton" destination="tuT-gC-RaI" id="8A7-bt-F4P"/>
                         <outlet property="tableView" destination="8A1-hP-w3n" id="GwN-QW-G2o"/>
+                        <segue destination="yKa-pw-fdc" kind="presentation" identifier="showChartVC" modalTransitionStyle="crossDissolve" id="ouW-8U-CqU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="284" y="148"/>
+            <point key="canvasLocation" x="444" y="107"/>
+        </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="LhY-eV-S2x">
+            <objects>
+                <viewController id="yKa-pw-fdc" customClass="ChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9YP-Rx-ryW"/>
+                        <viewControllerLayoutGuide type="bottom" id="UP4-ft-XCb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vjp-4o-D7X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-ti-7Rl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Pn7-j4-Bxh"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.1764705882" green="0.75294117650000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-Fh-6tZ">
+                                <rect key="frame" x="127" y="23" width="121" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="VIH-2x-0LB"/>
+                                    <constraint firstAttribute="height" constant="32" id="gdv-uY-DPj"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="手账" width="60"/>
+                                    <segment title="图表" width="60"/>
+                                </segments>
+                                <color key="tintColor" red="0.95904960289999996" green="1" blue="0.96956889489999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segementDidChange:" destination="yKa-pw-fdc" eventType="valueChanged" id="Tmm-24-EyS"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ohm-ti-7Rl" firstAttribute="top" secondItem="9YP-Rx-ryW" secondAttribute="bottom" constant="-20" id="2ux-0S-ceR"/>
+                            <constraint firstItem="5k1-Fh-6tZ" firstAttribute="centerX" secondItem="Ohm-ti-7Rl" secondAttribute="centerX" id="32M-XJ-NwR"/>
+                            <constraint firstItem="Ohm-ti-7Rl" firstAttribute="centerX" secondItem="Vjp-4o-D7X" secondAttribute="centerX" id="EmS-KS-AAR"/>
+                            <constraint firstItem="5k1-Fh-6tZ" firstAttribute="bottom" secondItem="Ohm-ti-7Rl" secondAttribute="bottom" constant="-8" id="lpz-uG-Hxq"/>
+                            <constraint firstItem="Ohm-ti-7Rl" firstAttribute="width" secondItem="Vjp-4o-D7X" secondAttribute="width" id="stP-ha-6oj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="showTableVC" modalTransitionStyle="crossDissolve" id="cdg-Yk-Pdx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e8p-m0-gEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1602" y="107"/>
         </scene>
     </scenes>
 </document>

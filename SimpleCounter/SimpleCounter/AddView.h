@@ -28,4 +28,5 @@
 
 - (IBAction)didTapAddView:(id)sender;
 
+-(void)showWithAnimate;
 @end

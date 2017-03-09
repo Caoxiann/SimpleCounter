@@ -13,6 +13,7 @@
 #import "Note.h"
 #import "DataManagement.h"
 #import <IQKeyboardReturnKeyHandler.h>
+
 @interface ViewController ()
 <MainVCDelegate>
 {
@@ -133,20 +134,38 @@
 }
 
 - (IBAction)segmentDidChange:(id)sender {
+    [self performSegueWithIdentifier:@"showChartVC" sender:self];
 }
 
 - (IBAction)didTapAddButton:(id)sender {
     _addView=[[AddView alloc]initAddView];
     _addView.mainVCDelegate=self;
+    
+    
     _shadowView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     _shadowView.backgroundColor=[UIColor grayColor];
     _shadowView.alpha=0.4;
     [self.view addSubview:_shadowView];
     [self.view addSubview:_addView];
+    [_addView showWithAnimate];
 }
 
 -(void)reloadTableView{
     self.dataArray=[self.dataManager getNoteFormDataBase];
     [self.tableView reloadData];
+}
+
+@end
+
+
+@implementation ChartViewController
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
+}
+
+
+- (IBAction)segementDidChange:(id)sender {
+    [self performSegueWithIdentifier:@"showTableVC" sender:self];
 }
 @end

@@ -39,6 +39,36 @@
     return self;
 }
 
+-(void)showWithAnimate{
+    CABasicAnimation *positionAni=[CABasicAnimation animationWithKeyPath:@"position.y"];
+    CGFloat screenHeight=[UIScreen mainScreen].bounds.size.height;
+    CGFloat height=self.bounds.size.height;
+    positionAni.fromValue=[NSNumber numberWithFloat:screenHeight+height/2];
+    positionAni.toValue=[NSNumber numberWithFloat:screenHeight-height/2];
+    positionAni.duration=0.3f;
+    positionAni.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    positionAni.fillMode=kCAFillModeForwards;
+    
+    CASpringAnimation *springAni=[CASpringAnimation animationWithKeyPath:@"position.y"];
+    springAni.damping=10;
+    springAni.stiffness=100;
+    springAni.mass=1;
+    springAni.fromValue=@(screenHeight+height/2);
+    springAni.toValue=@(screenHeight-height/2);
+    
+    springAni.initialVelocity=0;
+    NSLog(@"speed:%f",springAni.settlingDuration);
+    springAni.duration=springAni.settlingDuration;
+    springAni.fillMode=kCAFillModeForwards;
+    
+    CAAnimationGroup *animationGroup=[CAAnimationGroup animation];
+    animationGroup.removedOnCompletion=NO;
+    animationGroup.animations=@[positionAni,springAni];
+    
+    
+//    [self.layer addAnimation:positionAni forKey:@"animationGroup"];
+    [self.layer addAnimation:springAni forKey:@"springAni"];
+}
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     [super willMoveToSuperview:newSuperview];
@@ -48,6 +78,7 @@
     maskLayer.frame=self.bounds;
     self.layer.mask=maskLayer;
 }
+
 
 - (IBAction)didPressCancelButton:(id)sender {
     [self.mainVCDelegate removeAddView];
