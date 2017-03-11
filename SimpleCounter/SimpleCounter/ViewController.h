@@ -18,8 +18,11 @@
 
 - (IBAction)segmentDidChange:(id)sender;
 - (IBAction)didTapAddButton:(id)sender;
+- (IBAction)didTapVC:(id)sender;
+
 
 -(void)reloadTableView;
+
 @end
 
 

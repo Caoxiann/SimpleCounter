@@ -17,7 +17,7 @@
 @interface ViewController ()
 <MainVCDelegate>
 {
-    
+
 }
 @property AddView *addView;
 @property UIView *shadowView;
@@ -41,11 +41,7 @@
     
     self.returnKey=[[IQKeyboardReturnKeyHandler alloc]initWithViewController:self];
     
-    self.returnKey.lastTextFieldReturnKeyType=UIReturnKeyDone;
-    
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -148,6 +144,11 @@
     [self.view addSubview:_shadowView];
     [self.view addSubview:_addView];
     [_addView showWithAnimate];
+    
+}
+
+- (IBAction)didTapVC:(id)sender {
+    NSLog(@"did tap super view");
 }
 
 -(void)reloadTableView{

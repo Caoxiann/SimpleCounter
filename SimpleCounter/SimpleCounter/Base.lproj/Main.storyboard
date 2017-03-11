@@ -63,17 +63,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuT-gC-RaI" secondAttribute="bottom" id="3eq-bo-f9j"/>
                             <constraint firstItem="8A1-hP-w3n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ns-tY-rFE"/>
+                            <constraint firstItem="ACA-Hb-bWU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="4tF-S4-TOc"/>
                             <constraint firstItem="tuT-gC-RaI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="5VD-8t-q0D"/>
                             <constraint firstItem="Hhr-uO-FeT" firstAttribute="bottom" secondItem="ACA-Hb-bWU" secondAttribute="bottom" constant="-8" id="Iam-Zq-D9u"/>
                             <constraint firstItem="8A1-hP-w3n" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="J14-Eb-A4h"/>
                             <constraint firstItem="8A1-hP-w3n" firstAttribute="bottom" secondItem="tuT-gC-RaI" secondAttribute="bottom" constant="-40" id="TUo-RA-rj9"/>
-                            <constraint firstItem="ACA-Hb-bWU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="dLE-pN-cAf"/>
                             <constraint firstItem="ACA-Hb-bWU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gtW-mb-M2k"/>
                             <constraint firstItem="ACA-Hb-bWU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="jfP-P1-fQZ"/>
                             <constraint firstItem="tuT-gC-RaI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l8p-XP-Pja"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuT-gC-RaI" secondAttribute="bottom" id="rpw-AC-3in"/>
                             <constraint firstItem="8A1-hP-w3n" firstAttribute="top" secondItem="ACA-Hb-bWU" secondAttribute="bottom" id="uSF-I2-rSf"/>
                             <constraint firstItem="Hhr-uO-FeT" firstAttribute="centerX" secondItem="ACA-Hb-bWU" secondAttribute="centerX" id="zf2-B1-pT2"/>
                         </constraints>
@@ -85,6 +86,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ao9-vV-MbX">
+                    <connections>
+                        <action selector="didTapVC:" destination="BYZ-38-t0r" id="UIF-zB-Yau"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="444" y="107"/>
         </scene>
