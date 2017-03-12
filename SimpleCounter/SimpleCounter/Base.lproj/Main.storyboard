@@ -141,6 +141,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="412-U3-mC7" appends="YES" id="Y9e-Tr-b36"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl4-a5-FTw">
                                 <rect key="frame" x="26" y="337.5" width="323" height="309.5"/>
@@ -171,6 +175,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8p-m0-gEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="412-U3-mC7">
+                    <connections>
+                        <action selector="didTapLineView:" destination="yKa-pw-fdc" id="5CG-6w-1AF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1602" y="107"/>
         </scene>

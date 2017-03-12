@@ -16,7 +16,8 @@
     CGFloat graphViewHeight;
     CGFloat graphViewWidth;
 }
-
+@property CGPoint result;
+@property UILabel *dataLabel;
 @end
 
 @implementation ChartViewController
@@ -26,21 +27,21 @@
     self.lineView.layer.cornerRadius=10;
     
     NSArray *dayArray=[NSArray arrayWithObjects:@"1",@"2",@"1",@"2",@"1",@"2",@"1", nil];
-    NSArray *dataArray=[NSArray arrayWithObjects:@(120.11),@(0),@(211),@(32),@(25),@(16),@(22), nil];
+    self.dataArray=[NSArray arrayWithObjects:@(120.11),@(0),@(211),@(32),@(25),@(16),@(22), nil];
     
     lineViewHeight=self.lineView.bounds.size.height;
     lineViewWidth=self.lineView.bounds.size.width;
     graphViewWidth=self.graphView.bounds.size.width;
     graphViewHeight=self.graphView.bounds.size.height;
 
-    CGPoint result=[self calculatePricePerPixcialAndAverageWithDataArray:dataArray];
+    self.result=[self calculatePricePerPixcialAndAverageWithDataArray:self.dataArray];
     
     
     [self drawFadeBackgroundView];
     [self drawAxis];
-    [self drawDashLineWithResult:result];
-    [self drawPointsWithResult:result data:dataArray];
-    [self drawLinesWithResult:result data:dataArray];
+    [self drawDashLineWithResult:self.result];
+    [self drawPointsWithResult:self.result data:self.dataArray];
+    [self drawLinesWithResult:self.result data:self.dataArray];
     [self creatLabelOnXwithData:dayArray];
 }
 
@@ -67,6 +68,7 @@
     axisLayer.path=axis.CGPath;
     axisLayer.fillColor=nil;
     axisLayer.strokeColor=[UIColor whiteColor].CGColor;
+    axisLayer.opacity=0.5;
     [self.lineView.layer addSublayer:axisLayer];
 }
 
@@ -123,7 +125,6 @@
     [dashLine addLineToPoint:CGPointMake(lineViewWidth,lineViewHeight-result.x*result.y)];
     [dashLine setLineDash:arr count:2 phase:0];
     
-    [dashLine stroke];
     
     CAShapeLayer *dashLayer=[CAShapeLayer layer];
     dashLayer.strokeColor=[UIColor lightGrayColor].CGColor;
@@ -145,7 +146,21 @@
     }
     pointsLayer.path=points.CGPath;
     pointsLayer.fillColor=[UIColor whiteColor].CGColor;
+    pointsLayer.opacity=0.8;
+    pointsLayer.frame=self.lineView.bounds;    
+    CASpringAnimation *springAni=[CASpringAnimation animationWithKeyPath:@"position.y"];
+    springAni.mass=1;
+    springAni.stiffness=100;
+    springAni.damping=15;
+    springAni.duration=springAni.settlingDuration;
+    springAni.fromValue=@(1.5*lineViewHeight);
+    springAni.toValue=@(0.5*lineViewHeight);
+    springAni.fillMode=kCAFillModeForwards;
+    springAni.removedOnCompletion=NO;
+    springAni.delegate=self;
+    
     [self.lineView.layer addSublayer:pointsLayer];
+    [pointsLayer addAnimation:springAni forKey:@"springAni"];
     
 }
 
@@ -162,11 +177,12 @@
     CAShapeLayer *layer2=[CAShapeLayer layer];
     layer2.frame=self.lineView.bounds;
     layer2.path=strokePath.CGPath;
-    layer2.lineWidth=1.0f;
+    layer2.lineWidth=2.0f;
     layer2.fillColor=nil;;
     
     layer2.lineJoin=kCALineCapRound;
     layer2.strokeColor=[UIColor whiteColor].CGColor;
+    layer2.opacity=0.8;
     [self.lineView.layer addSublayer:layer2];
     
     CABasicAnimation *animation=[CABasicAnimation animationWithKeyPath:@"strokeEnd"];
@@ -194,4 +210,55 @@
 }
 */
 
+- (IBAction)didTapLineView:(UITapGestureRecognizer *)sender {
+    CGPoint tapPoint=[sender locationInView:self.lineView];
+    CGPoint hitData=[self getDataIfHitPoint:tapPoint withData:self.dataArray AndResult:self.result];
+    if (hitData.x!=-1&&hitData.y!=-1) {
+        NSLog(@"hit %f",hitData.y);
+        [self showHitPrice:hitData];
+    }
+}
+
+-(CGPoint)getDataIfHitPoint:(CGPoint)tapPoint withData:(NSArray *)dataArray AndResult:(CGPoint)result{
+    CGFloat positionX,positionY,price,ppp=result.x;
+    CGFloat spacing=lineViewWidth/([dataArray count]-1);
+    for (int i=0; i<[dataArray count]; i++) {
+        price=[[dataArray objectAtIndex:i]floatValue];
+        positionX=i*spacing+10;
+        positionY=lineViewHeight-ppp*price;
+        
+        if (tapPoint.x>positionX-10&&tapPoint.x<positionX+10&&tapPoint.y>positionY-10&&tapPoint.y<positionY+10) {
+            return CGPointMake(positionX, price);
+        }
+    }
+    return CGPointMake(-1, -1);
+}
+
+-(void)showHitPrice:(CGPoint)data{
+    if (!_dataLabel) {
+        _dataLabel=[[UILabel alloc]init];
+        [self.lineView addSubview:_dataLabel];
+    }
+    if (data.x<=10)data.x=30;
+    [_dataLabel setFrame:CGRectMake(data.x-20, 20, 40, 20)];
+    _dataLabel.text=[NSString stringWithFormat:@"%.2f",data.y];
+    [_dataLabel setFont:[UIFont systemFontOfSize:12]];
+    _dataLabel.textColor=[UIColor whiteColor];
+    
+    CABasicAnimation *positionAni=[CABasicAnimation animationWithKeyPath:@"position.y"];
+    positionAni.fromValue=@(100);
+    positionAni.toValue=@(35);
+    positionAni.removedOnCompletion=NO;
+    positionAni.fillMode=kCAFillModeForwards;
+    positionAni.delegate=self;
+    
+    CABasicAnimation *opacityAni=[CABasicAnimation animationWithKeyPath:@"opacity"];
+    opacityAni.fromValue=@(0);
+    opacityAni.toValue=@(1.0);
+    opacityAni.removedOnCompletion=NO;
+    positionAni.fillMode=kCAFillModeForwards;
+    
+    [_dataLabel.layer addAnimation:positionAni forKey:@"labelAni"];
+    [_dataLabel.layer addAnimation:opacityAni forKey:@"opacityAni"];
+}
 @end

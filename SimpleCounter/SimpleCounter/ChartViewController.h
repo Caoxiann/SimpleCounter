@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ChartViewController : UIViewController
-- (IBAction)segementDidChange:(id)sender;
+@property (strong,nonatomic) NSArray *dataArray;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
-
 @property (weak, nonatomic) IBOutlet UIView *graphView;
+- (IBAction)didTapLineView:(UITapGestureRecognizer *)sender;
+- (IBAction)segementDidChange:(id)sender;
 
 @end
