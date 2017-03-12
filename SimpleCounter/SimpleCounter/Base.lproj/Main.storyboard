@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -114,7 +116,7 @@
                                 <color key="barTintColor" red="0.1764705882" green="0.75294117650000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </navigationBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-Fh-6tZ">
-                                <rect key="frame" x="127" y="23" width="121" height="33"/>
+                                <rect key="frame" x="127" y="24" width="121" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="121" id="VIH-2x-0LB"/>
                                     <constraint firstAttribute="height" constant="32" id="gdv-uY-DPj"/>
@@ -128,17 +130,43 @@
                                     <action selector="segementDidChange:" destination="yKa-pw-fdc" eventType="valueChanged" id="Tmm-24-EyS"/>
                                 </connections>
                             </segmentedControl>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFi-fJ-w3v">
+                                <rect key="frame" x="26" y="84" width="323" height="233.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-PZ-3Fb">
+                                        <rect key="frame" x="273" y="13" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl4-a5-FTw">
+                                <rect key="frame" x="26" y="337.5" width="323" height="309.5"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.75294117650000003" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ohm-ti-7Rl" firstAttribute="top" secondItem="9YP-Rx-ryW" secondAttribute="bottom" constant="-20" id="2ux-0S-ceR"/>
                             <constraint firstItem="5k1-Fh-6tZ" firstAttribute="centerX" secondItem="Ohm-ti-7Rl" secondAttribute="centerX" id="32M-XJ-NwR"/>
+                            <constraint firstItem="zFi-fJ-w3v" firstAttribute="top" secondItem="Ohm-ti-7Rl" secondAttribute="bottom" constant="20" id="4bk-iB-nqf"/>
+                            <constraint firstItem="zFi-fJ-w3v" firstAttribute="height" secondItem="Vjp-4o-D7X" secondAttribute="height" multiplier="0.35" id="7ME-zb-eft"/>
+                            <constraint firstItem="UP4-ft-XCb" firstAttribute="top" secondItem="kl4-a5-FTw" secondAttribute="bottom" constant="20" id="EHs-21-Nq5"/>
                             <constraint firstItem="Ohm-ti-7Rl" firstAttribute="centerX" secondItem="Vjp-4o-D7X" secondAttribute="centerX" id="EmS-KS-AAR"/>
+                            <constraint firstItem="kl4-a5-FTw" firstAttribute="top" secondItem="zFi-fJ-w3v" secondAttribute="bottom" constant="20" id="IHC-Do-lv8"/>
+                            <constraint firstItem="kl4-a5-FTw" firstAttribute="leading" secondItem="Vjp-4o-D7X" secondAttribute="leadingMargin" constant="10" id="NCv-pU-dRp"/>
+                            <constraint firstItem="zFi-fJ-w3v" firstAttribute="leading" secondItem="Vjp-4o-D7X" secondAttribute="leadingMargin" constant="10" id="Wdx-0M-sbP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kl4-a5-FTw" secondAttribute="trailing" constant="10" id="hma-Ct-tsI"/>
                             <constraint firstItem="5k1-Fh-6tZ" firstAttribute="bottom" secondItem="Ohm-ti-7Rl" secondAttribute="bottom" constant="-8" id="lpz-uG-Hxq"/>
                             <constraint firstItem="Ohm-ti-7Rl" firstAttribute="width" secondItem="Vjp-4o-D7X" secondAttribute="width" id="stP-ha-6oj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zFi-fJ-w3v" secondAttribute="trailing" constant="10" id="wLT-Cb-5xc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="graphView" destination="kl4-a5-FTw" id="Ozp-SZ-olG"/>
+                        <outlet property="lineView" destination="zFi-fJ-w3v" id="Nlj-gl-I7G"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="showTableVC" modalTransitionStyle="crossDissolve" id="cdg-Yk-Pdx"/>
                     </connections>
                 </viewController>

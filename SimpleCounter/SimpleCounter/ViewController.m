@@ -159,14 +159,4 @@
 @end
 
 
-@implementation ChartViewController
 
--(void)viewDidLoad{
-    [super viewDidLoad];
-}
-
-
-- (IBAction)segementDidChange:(id)sender {
-    [self performSegueWithIdentifier:@"showTableVC" sender:self];
-}
-@end

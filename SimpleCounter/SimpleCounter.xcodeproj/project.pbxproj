@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A71F6E11E73C47B00EED974 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A71F6E01E73C47B00EED974 /* ChartViewController.m */; };
 		1AB3D2C01E6141B000141759 /* HeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3D2BF1E6141B000141759 /* HeaderFooterView.m */; };
 		1AB3D2C21E6141C000141759 /* HeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB3D2C11E6141C000141759 /* HeaderFooterView.xib */; };
 		1AB3D2C41E615B6700141759 /* AddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB3D2C31E615B6700141759 /* AddView.xib */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A71F6DF1E73C47B00EED974 /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
+		1A71F6E01E73C47B00EED974 /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		1AB3D2BE1E6141B000141759 /* HeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderFooterView.h; sourceTree = "<group>"; };
 		1AB3D2BF1E6141B000141759 /* HeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderFooterView.m; sourceTree = "<group>"; };
 		1AB3D2C11E6141C000141759 /* HeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderFooterView.xib; sourceTree = "<group>"; };
@@ -70,6 +73,8 @@
 			children = (
 				1ACB0D5C1E5DBE0900D9FC39 /* ViewController.h */,
 				1ACB0D5D1E5DBE0900D9FC39 /* ViewController.m */,
+				1A71F6DF1E73C47B00EED974 /* ChartViewController.h */,
+				1A71F6E01E73C47B00EED974 /* ChartViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				1ACB0D5B1E5DBE0900D9FC39 /* AppDelegate.m in Sources */,
 				1ACB0D581E5DBE0900D9FC39 /* main.m in Sources */,
 				1AB3D2CA1E66748000141759 /* Note.m in Sources */,
+				1A71F6E11E73C47B00EED974 /* ChartViewController.m in Sources */,
 				1ACB0D741E5DD70D00D9FC39 /* NoteTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

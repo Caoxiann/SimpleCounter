@@ -127,12 +127,12 @@
     [self.typeInput resignFirstResponder];
     [self.priceInput resignFirstResponder];
     
-    
     NSLog(@"did tap subview");
 }
 
 - (IBAction)handlePanGesture:(UIPanGestureRecognizer *)sender {
     
+    [self.layer removeAnimationForKey:@"springAni"];
     CGPoint point=[sender translationInView:self];
     if (self.center.y+point.y>screenHeight-height/2) {
         self.center=CGPointMake(self.center.x, self.center.y+point.y);
@@ -146,6 +146,7 @@
     }else if (sender.state==UIGestureRecognizerStateEnded&&speed.y<200){
         [self showWithAnimateFrom:self.center.y];
     }
+    
     
 }
 
