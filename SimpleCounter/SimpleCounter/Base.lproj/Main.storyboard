@@ -133,15 +133,22 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFi-fJ-w3v">
                                 <rect key="frame" x="26" y="84" width="323" height="233.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-PZ-3Fb">
-                                        <rect key="frame" x="273" y="13" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-PZ-3Fb">
+                                        <rect key="frame" x="198" y="5" width="120" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="gg6-5A-6Ee"/>
+                                            <constraint firstAttribute="height" constant="25" id="maN-Ne-KbE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mBN-PZ-3Fb" secondAttribute="trailing" constant="5" id="SJ6-0r-sjn"/>
+                                    <constraint firstItem="mBN-PZ-3Fb" firstAttribute="top" secondItem="zFi-fJ-w3v" secondAttribute="top" constant="5" id="d1G-rD-AAW"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="412-U3-mC7" appends="YES" id="Y9e-Tr-b36"/>
                                 </connections>
@@ -171,6 +178,7 @@
                     <connections>
                         <outlet property="graphView" destination="kl4-a5-FTw" id="Ozp-SZ-olG"/>
                         <outlet property="lineView" destination="zFi-fJ-w3v" id="Nlj-gl-I7G"/>
+                        <outlet property="totalLabel" destination="mBN-PZ-3Fb" id="CO1-q5-3ra"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="showTableVC" modalTransitionStyle="crossDissolve" id="cdg-Yk-Pdx"/>
                     </connections>
                 </viewController>
@@ -181,7 +189,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1602" y="107"/>
+            <point key="canvasLocation" x="1600.8" y="106.59670164917542"/>
         </scene>
     </scenes>
 </document>

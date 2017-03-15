@@ -36,7 +36,7 @@
     graphViewWidth=self.graphView.bounds.size.width;
     graphViewHeight=self.graphView.bounds.size.height;
 
-    NSArray *dayArray=[NSArray arrayWithObjects:@"1",@"2",@"1",@"2",@"1",@"2",@"1", nil];
+    NSArray *dayArray=[NSArray arrayWithObjects:@"周一",@"周二",@"周三",@"周四",@"周五",@"周六",@"周日", nil];
     self.dataArray=[NSArray arrayWithObjects:@(120.11),@(0),@(211),@(32),@(25),@(16),@(22), nil];
     
     self.result=[self calculatePricePerPixcialAndAverageWithDataArray:self.dataArray];
@@ -47,6 +47,7 @@
     [self drawDashLineWithResult:self.result];
     [self drawPointsWithResult:self.result data:self.dataArray];
     [self drawLinesWithResult:self.result data:self.dataArray];
+    [self calculateTotalLabel];
     [self creatLabelOnXwithData:dayArray];
 }
 - (IBAction)segementDidChange:(id)sender {
@@ -61,9 +62,10 @@
 
 -(void)drawAxis{
     UIBezierPath *axis=[UIBezierPath bezierPath];
-    [axis moveToPoint:CGPointMake(10, 20)];
-    [axis addLineToPoint:CGPointMake(10, lineViewHeight-20)];
-    [axis addLineToPoint:CGPointMake(lineViewWidth, lineViewHeight-20)];
+    [axis moveToPoint:CGPointMake(10, 32)];
+    [axis addLineToPoint:CGPointMake(lineViewWidth-10, 32)];
+    [axis moveToPoint:CGPointMake(10, lineViewHeight-20)];
+    [axis addLineToPoint:CGPointMake(lineViewWidth-10, lineViewHeight-20)];
     axis.lineWidth=1.0f;
     axis.lineJoinStyle=kCGLineJoinRound;
     
@@ -84,6 +86,7 @@
         dayLabel.text=[dataArray objectAtIndex:i];
         dayLabel.textAlignment=NSTextAlignmentLeft;
         [dayLabel setFont:[UIFont systemFontOfSize:12 weight:0.1]];
+        dayLabel.textColor=[UIColor whiteColor];
         [self.lineView addSubview:dayLabel];
     }
 }
@@ -100,7 +103,7 @@
     }
     topPrice=topPrice+(50-topPrice%50);
     
-    float ppp=(lineViewHeight-40)/(float)topPrice;
+    float ppp=(lineViewHeight-60)/(float)topPrice;
     float average=total/(float)[dataArray count];
     
     CGPoint result=CGPointMake(ppp, average);
@@ -125,7 +128,7 @@
     
     UIBezierPath *dashLine=[UIBezierPath bezierPath];
     [dashLine moveToPoint:CGPointMake(10, lineViewHeight-result.x*result.y-20)];
-    [dashLine addLineToPoint:CGPointMake(lineViewWidth,lineViewHeight-result.x*result.y-20)];
+    [dashLine addLineToPoint:CGPointMake(lineViewWidth-30,lineViewHeight-result.x*result.y-20)];
     [dashLine setLineDash:arr count:2 phase:0];
     
     
@@ -135,7 +138,13 @@
     dashLayer.path=dashLine.CGPath;
     dashLayer.fillColor=nil;
     
+    UILabel *averageLabel=[[UILabel alloc]initWithFrame:CGRectMake(lineViewWidth-30, lineViewHeight-result.x*result.y-30, 30, 20)];
+    averageLabel.text=[NSString stringWithFormat:@"% .1f",result.y];
+    [averageLabel setFont:[UIFont systemFontOfSize:10]];
+    averageLabel.textColor=[UIColor lightGrayColor];
+    
     [self.lineView.layer addSublayer:dashLayer];
+    [self.lineView addSubview:averageLabel];
 }
 
 -(void)drawPointsWithResult:(CGPoint)result data:(NSArray *)dataArray{
@@ -206,15 +215,6 @@
     NSLog(@"animate start:%@",anim);
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)didTapLineView:(UITapGestureRecognizer *)sender {
     CGPoint tapPoint=[sender locationInView:self.lineView];
@@ -251,7 +251,7 @@
     
     CABasicAnimation *positionAni=[CABasicAnimation animationWithKeyPath:@"position.y"];
     positionAni.fromValue=@(100);
-    positionAni.toValue=@(35);
+    positionAni.toValue=@(45);
     positionAni.removedOnCompletion=NO;
     positionAni.fillMode=kCAFillModeForwards;
     positionAni.delegate=self;
@@ -264,5 +264,16 @@
     
     [_dataLabel.layer addAnimation:positionAni forKey:@"labelAni"];
     [_dataLabel.layer addAnimation:opacityAni forKey:@"opacityAni"];
+}
+
+-(void)calculateTotalLabel{
+    float total=0;
+    for (int i=0; i<[_dataArray count]; i++) {
+        total+=[[_dataArray objectAtIndex:i]floatValue];
+    }
+    self.totalLabel.text=[NSString stringWithFormat:@"总额:%.2f元",total];
+    self.totalLabel.textColor=[UIColor whiteColor];
+    
+    
 }
 @end
