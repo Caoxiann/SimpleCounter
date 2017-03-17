@@ -16,4 +16,5 @@
 -(void)deleteNoteNumber:(int)number;
 -(int)getNoteCount;
 -(NSString *)getWeeksFromDate:(NSString *)dateStr;
+-(NSArray *)getDataOfLastWeek;
 @end

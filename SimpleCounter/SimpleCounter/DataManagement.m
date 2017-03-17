@@ -117,5 +117,31 @@ static DataManagement *instance=nil;
     
 }
 
+-(NSArray *)getDataOfLastWeek{
+    int count=[self getNoteCount];
+    NSDate *curDate=[NSDate date];
+    NSMutableArray *dataArray=[[NSMutableArray alloc]init];
+    int counter=0,days=0;
+    for (int i=0; i<count;i=i+counter) {
+        
+        NSString *dateStr=[_formatter stringFromDate:curDate];
+        FMResultSet *resultSet=[_database executeQuery:@"select * from t_note where date=?",dateStr];
+        counter=0;
+        double total=0;
+        while ([resultSet next]) {
+            total+=[resultSet doubleForColumn:@"price"];
+            counter++;
+        }
+        [dataArray addObject:@(total)];
+        curDate=[curDate dateByAddingTimeInterval:-60*60*24];
+        days++;
+        if (days==7) {
+            return [NSArray arrayWithArray:[[dataArray reverseObjectEnumerator]allObjects]];
+        }
+    }
+    NSLog(@"note array:%@",dataArray);
+    return [NSArray arrayWithArray:[[dataArray reverseObjectEnumerator]allObjects]];
+}
+
 
 @end

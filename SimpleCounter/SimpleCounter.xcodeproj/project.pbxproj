@@ -419,6 +419,7 @@
 			baseConfigurationReference = 29E61A2529DDEC77CB122A5C /* Pods-SimpleCounter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = L2Y6JL6YGJ;
 				INFOPLIST_FILE = SimpleCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -432,6 +433,7 @@
 			baseConfigurationReference = 91D8FDAD0CBEC88F78AF2633 /* Pods-SimpleCounter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = L2Y6JL6YGJ;
 				INFOPLIST_FILE = SimpleCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

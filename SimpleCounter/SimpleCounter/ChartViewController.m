@@ -7,7 +7,7 @@
 //
 
 #import "ChartViewController.h"
-
+#import "DataManagement.h"
 @interface ChartViewController ()
 <CAAnimationDelegate>
 {
@@ -18,6 +18,7 @@
 }
 @property CGPoint result;
 @property UILabel *dataLabel;
+@property DataManagement *dataManager;
 @end
 
 @implementation ChartViewController
@@ -36,8 +37,8 @@
     graphViewWidth=self.graphView.bounds.size.width;
     graphViewHeight=self.graphView.bounds.size.height;
 
-    NSArray *dayArray=[NSArray arrayWithObjects:@"周一",@"周二",@"周三",@"周四",@"周五",@"周六",@"周日", nil];
-    self.dataArray=[NSArray arrayWithObjects:@(120.11),@(0),@(211),@(32),@(25),@(16),@(22), nil];
+    self.dataManager=[DataManagement shareDataManagement];
+    self.dataArray=[self.dataManager getDataOfLastWeek];
     
     self.result=[self calculatePricePerPixcialAndAverageWithDataArray:self.dataArray];
     
@@ -48,7 +49,7 @@
     [self drawPointsWithResult:self.result data:self.dataArray];
     [self drawLinesWithResult:self.result data:self.dataArray];
     [self calculateTotalLabel];
-    [self creatLabelOnXwithData:dayArray];
+    [self creatLabelOnX];
 }
 - (IBAction)segementDidChange:(id)sender {
     [self performSegueWithIdentifier:@"showTableVC" sender:self];
@@ -77,16 +78,19 @@
     [self.lineView.layer addSublayer:axisLayer];
 }
 
--(void)creatLabelOnXwithData:(NSArray *)dataArray{
-    CGFloat days=[dataArray count];
-    CGFloat spacing=lineViewWidth/days;
+-(void)creatLabelOnX{
+    CGFloat spacing=lineViewWidth/7;
     
-    for (int i=0; i<days; i++) {
-        UILabel *dayLabel=[[UILabel alloc]initWithFrame:CGRectMake(10+spacing*i, lineViewHeight-15, spacing,15)];
-        dayLabel.text=[dataArray objectAtIndex:i];
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    for (int i=0; i<7; i++) {
+        UILabel *dayLabel=[[UILabel alloc]initWithFrame:CGRectMake(10+spacing*(6-i), lineViewHeight-15, spacing,15)];
         dayLabel.textAlignment=NSTextAlignmentLeft;
         [dayLabel setFont:[UIFont systemFontOfSize:12 weight:0.1]];
         dayLabel.textColor=[UIColor whiteColor];
+        
+        NSDate *curDate=[NSDate dateWithTimeIntervalSinceNow:-i*60*60*24];
+        dayLabel.text=[self.dataManager getWeeksFromDate:[formatter stringFromDate:curDate]];
         [self.lineView addSubview:dayLabel];
     }
 }
@@ -125,13 +129,14 @@
 
 -(void)drawDashLineWithResult:(CGPoint)result{
     CGFloat arr[]={10,1};
-    
     UIBezierPath *dashLine=[UIBezierPath bezierPath];
-    [dashLine moveToPoint:CGPointMake(10, lineViewHeight-result.x*result.y-20)];
-    [dashLine addLineToPoint:CGPointMake(lineViewWidth-30,lineViewHeight-result.x*result.y-20)];
-    [dashLine setLineDash:arr count:2 phase:0];
-    
-    
+    if (result.x!=0) {
+        
+        [dashLine moveToPoint:CGPointMake(10, lineViewHeight-result.x*result.y-20)];
+        [dashLine addLineToPoint:CGPointMake(lineViewWidth-30,lineViewHeight-result.x*result.y-20)];
+        [dashLine setLineDash:arr count:2 phase:0];
+    }
+
     CAShapeLayer *dashLayer=[CAShapeLayer layer];
     dashLayer.strokeColor=[UIColor lightGrayColor].CGColor;
     dashLayer.lineDashPattern=@[@6,@3];
@@ -148,7 +153,7 @@
 }
 
 -(void)drawPointsWithResult:(CGPoint)result data:(NSArray *)dataArray{
-    CGFloat spacing=lineViewWidth/[dataArray count];
+    CGFloat spacing=lineViewWidth/7;
     CGFloat ppp=result.x;
     UIBezierPath *points=[UIBezierPath bezierPath];
     CAShapeLayer *pointsLayer=[CAShapeLayer layer];
@@ -181,7 +186,7 @@
 
 -(void)drawLinesWithResult:(CGPoint)result data:(NSArray *)dataArray{
     UIBezierPath *strokePath=[UIBezierPath bezierPath];
-    CGFloat spacing=lineViewWidth/[dataArray count];
+    CGFloat spacing=lineViewWidth/7;
     CGFloat ppp=result.x;
     [strokePath moveToPoint:CGPointMake(10, lineViewHeight-ppp*[[dataArray objectAtIndex:0]floatValue]-20)];
     for (int i=1; i<[dataArray count]; i++) {
