@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2月20日 星期五" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAd-bg-h0f">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -27,8 +27,8 @@
             <constraints>
                 <constraint firstItem="DAd-bg-h0f" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="7kO-56-Gjo"/>
                 <constraint firstItem="DAd-bg-h0f" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DjX-uI-t4h"/>
-                <constraint firstItem="DAd-bg-h0f" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="hei-I1-oJQ"/>
-                <constraint firstItem="DAd-bg-h0f" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="htA-fJ-kSc"/>
+                <constraint firstAttribute="bottom" secondItem="DAd-bg-h0f" secondAttribute="bottom" id="Sau-S6-eex"/>
+                <constraint firstItem="DAd-bg-h0f" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="qwt-qt-Qak"/>
             </constraints>
             <connections>
                 <outlet property="dateLabel" destination="DAd-bg-h0f" id="sMg-XV-D1Z"/>
@@ -40,14 +40,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当日消费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdS-gG-4Zn">
-                    <rect key="frame" x="0.0" y="0.0" width="188" height="667"/>
+                    <rect key="frame" x="20" y="0.0" width="188" height="667"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总额" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbY-0m-dBh">
-                    <rect key="frame" x="242.5" y="0.0" width="112.5" height="667"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="237.5" y="0.0" width="112.5" height="667"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -60,8 +60,8 @@
                 <constraint firstItem="QdS-gG-4Zn" firstAttribute="height" secondItem="fde-sa-5co" secondAttribute="height" id="SpT-7M-wU8"/>
                 <constraint firstItem="bbY-0m-dBh" firstAttribute="width" secondItem="fde-sa-5co" secondAttribute="width" multiplier="0.3" id="VsF-RI-Xcl"/>
                 <constraint firstItem="QdS-gG-4Zn" firstAttribute="centerY" secondItem="fde-sa-5co" secondAttribute="centerY" id="hIe-Sx-iof"/>
-                <constraint firstAttribute="trailing" secondItem="bbY-0m-dBh" secondAttribute="trailing" constant="20" id="l9W-nR-UPw"/>
-                <constraint firstItem="QdS-gG-4Zn" firstAttribute="leading" secondItem="fde-sa-5co" secondAttribute="leading" id="zai-TM-p2u"/>
+                <constraint firstAttribute="trailing" secondItem="bbY-0m-dBh" secondAttribute="trailing" constant="25" id="l9W-nR-UPw"/>
+                <constraint firstItem="QdS-gG-4Zn" firstAttribute="leading" secondItem="fde-sa-5co" secondAttribute="leading" constant="20" id="zai-TM-p2u"/>
             </constraints>
             <connections>
                 <outlet property="comsumLabel" destination="QdS-gG-4Zn" id="oa3-NV-zd0"/>

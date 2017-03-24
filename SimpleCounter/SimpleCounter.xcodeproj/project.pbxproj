@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A71F6E11E73C47B00EED974 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A71F6E01E73C47B00EED974 /* ChartViewController.m */; };
+		1A9F16791E8518BC00F91F7F /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9F16781E8518BC00F91F7F /* blue.png */; };
 		1AB3D2C01E6141B000141759 /* HeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3D2BF1E6141B000141759 /* HeaderFooterView.m */; };
 		1AB3D2C21E6141C000141759 /* HeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB3D2C11E6141C000141759 /* HeaderFooterView.xib */; };
 		1AB3D2C41E615B6700141759 /* AddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB3D2C31E615B6700141759 /* AddView.xib */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		1A71F6DF1E73C47B00EED974 /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
 		1A71F6E01E73C47B00EED974 /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
+		1A9F16781E8518BC00F91F7F /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
 		1AB3D2BE1E6141B000141759 /* HeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderFooterView.h; sourceTree = "<group>"; };
 		1AB3D2BF1E6141B000141759 /* HeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderFooterView.m; sourceTree = "<group>"; };
 		1AB3D2C11E6141C000141759 /* HeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderFooterView.xib; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A9F16771E8518A300F91F7F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1A9F16781E8518BC00F91F7F /* blue.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		1AB3D2CE1E6811FC00141759 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +147,7 @@
 				1ACB0D641E5DBE0900D9FC39 /* LaunchScreen.storyboard */,
 				1ACB0D671E5DBE0900D9FC39 /* Info.plist */,
 				1ACB0D561E5DBE0900D9FC39 /* Supporting Files */,
+				1A9F16771E8518A300F91F7F /* Images */,
 			);
 			path = SimpleCounter;
 			sourceTree = "<group>";
@@ -233,6 +244,7 @@
 				1ACB0D631E5DBE0900D9FC39 /* Assets.xcassets in Resources */,
 				1ACB0D611E5DBE0900D9FC39 /* Main.storyboard in Resources */,
 				1AB3D2C41E615B6700141759 /* AddView.xib in Resources */,
+				1A9F16791E8518BC00F91F7F /* blue.png in Resources */,
 				1ACB0D751E5DD70D00D9FC39 /* NoteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

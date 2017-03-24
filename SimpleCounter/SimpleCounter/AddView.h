@@ -20,7 +20,8 @@
 @property id<MainVCDelegate>mainVCDelegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleInput;
-@property (weak, nonatomic) IBOutlet UITextField *typeInput;
+@property (weak, nonatomic) IBOutlet UIView *typeView;
+
 @property (weak, nonatomic) IBOutlet UITextField *priceInput;
 @property (weak, nonatomic) IBOutlet UIPanGestureRecognizer *panGesture;
 
@@ -29,6 +30,8 @@
 
 - (IBAction)didTapAddView:(id)sender;
 - (IBAction)handlePanGesture:(UIPanGestureRecognizer *)sender;
+
+- (IBAction)didSelectTypeButton:(UIButton *)sender;
 
 -(void)showWithAnimate;
 

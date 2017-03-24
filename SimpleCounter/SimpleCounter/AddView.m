@@ -105,14 +105,15 @@
 }
 
 - (IBAction)didPressConfirmButton:(id)sender {
-    if ([self.titleInput.text length]==0||[self.typeInput.text length]==0||[self.priceInput.text length]==0) {
+    if ([self.titleInput.text length]==0||[self.priceInput.text length]==0) {
         [SVProgressHUD setMaximumDismissTimeInterval:2.0];
         [SVProgressHUD showErrorWithStatus:@"请完整填写内容"];
     }else{
         NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"yyyy-MM-dd"];
         NSString *date=[formatter stringFromDate:[NSDate date]];
-        Note *newNote=[[Note alloc]initWithData:0 title:self.titleInput.text type:self.typeInput.text price:[self.priceInput.text doubleValue] date:date];
+        NSString *type=[self getSelectedType];
+        Note *newNote=[[Note alloc]initWithData:0 title:self.titleInput.text type:type price:[self.priceInput.text doubleValue] date:date];
         
         [self.dataManager insertNote:newNote];
         
@@ -124,7 +125,6 @@
 
 - (IBAction)didTapAddView:(id)sender {
     [self.titleInput resignFirstResponder];
-    [self.typeInput resignFirstResponder];
     [self.priceInput resignFirstResponder];
     
     NSLog(@"did tap subview");
@@ -137,6 +137,7 @@
     if (self.center.y+point.y>screenHeight-height/2) {
         self.center=CGPointMake(self.center.x, self.center.y+point.y);
     }
+    
     CGPoint speed=[sender velocityInView:self];
     
     [sender setTranslation:CGPointMake(0, 0) inView:self];
@@ -150,6 +151,24 @@
     
 }
 
+- (IBAction)didSelectTypeButton:(UIButton *)sender {
+    NSLog(@"select:%@",sender.titleLabel.text);
+    for (UIButton *button in self.typeView.subviews) {
+        button.selected=NO;
+        [button setBackgroundColor:[UIColor whiteColor]];
+    }
+    sender.selected=YES;
+    [sender setBackgroundColor:[UIColor colorWithRed:55/255.0 green:158/255.0 blue:255/255.0 alpha:1]];
+}
+
+-(NSString *)getSelectedType{
+    for (UIButton *button in self.typeView.subviews) {
+        if (button.state==UIControlStateSelected) {
+            return button.titleLabel.text;
+        }
+    }
+    return @"其他";
+}
 
 
 @end

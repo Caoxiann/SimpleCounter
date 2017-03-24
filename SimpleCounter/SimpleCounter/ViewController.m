@@ -65,14 +65,14 @@
     }
     Note *note=[[self.dataArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     cell.titleLabel.text=note.title;
-    cell.typeLabel.text=note.type;
+//    cell.typeLabel.text=note.type;
     cell.priceLabel.text=[NSString stringWithFormat:@"-%.2f 元",note.price];
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 20;
+    return 40;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -102,7 +102,7 @@
     if (footer==nil) {
         footer=[[NSBundle mainBundle]loadNibNamed:@"HeaderFooterView" owner:nil options:nil][1];
     }
-    
+    [footer.contentView setBackgroundColor:[UIColor whiteColor]];
     double total=0;
     for (Note *note in [self.dataArray objectAtIndex:section]) {
         total=total+note.price;

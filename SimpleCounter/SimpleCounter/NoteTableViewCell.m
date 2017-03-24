@@ -20,6 +20,11 @@
     // Initialization code
 }
 
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.typeLabel.layer.cornerRadius=self.typeLabel.bounds.size.width/2;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
